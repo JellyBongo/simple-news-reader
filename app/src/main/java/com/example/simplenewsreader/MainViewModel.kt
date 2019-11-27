@@ -7,12 +7,12 @@ import com.prof.rssparser.Article
 import com.prof.rssparser.Parser
 import kotlinx.coroutines.*
 
-class MainViewModel: ViewModel() {
+class MainViewModel : ViewModel() {
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private val articles: MutableLiveData<List<Article>> by lazy {
-        MutableLiveData<List<Article>>().also{
+        MutableLiveData<List<Article>>().also {
             loadArticles()
         }
     }
@@ -21,19 +21,19 @@ class MainViewModel: ViewModel() {
         return articles
     }
 
-    private fun addToArticles(articleList: MutableList<Article>){
+    private fun addToArticles(articleList: MutableList<Article>) {
         articles.postValue(articleList)
     }
 
     private fun loadArticles() {
         val urls = getUrls()
         urls.forEach { url ->
-            coroutineScope.launch(Dispatchers.Main){
-                try{
+            coroutineScope.launch(Dispatchers.Main) {
+                try {
                     val parser = Parser()
                     val articleList = parser.getArticles(url)
                     addToArticles(articleList)
-                } catch (e: Exception){
+                } catch (e: Exception) {
                     println(e.message)
                 }
             }
@@ -47,4 +47,5 @@ class MainViewModel: ViewModel() {
             "http://static.feed.rbc.ru/rbc/logical/footer/news.rss"
         )
     }
+
 }
