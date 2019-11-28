@@ -1,13 +1,14 @@
-package com.example.simplenewsreader
+package com.example.simplenewsreader.activities
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.simplenewsreader.utils.ArticleAdapter
+import com.example.simplenewsreader.viewmodels.MainViewModel
+import com.example.simplenewsreader.R
+import com.example.simplenewsreader.adapters.ArticleAdapter
 import com.prof.rssparser.Article
 import java.text.SimpleDateFormat
 import java.util.*
@@ -57,14 +58,9 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    /**
-     * Called when the user taps the article title
-     */
-    fun openArticle(view: View){
-
-    }
     private fun sortedByDate(list: List<Article>): List<Article> {
-        val articlePubDateComparator = ArticlePubDateComparator()
+        val articlePubDateComparator =
+            ArticlePubDateComparator()
         return list.sortedWith(articlePubDateComparator)
     }
 }

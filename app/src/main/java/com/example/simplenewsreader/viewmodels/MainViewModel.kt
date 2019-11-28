@@ -1,4 +1,4 @@
-package com.example.simplenewsreader
+package com.example.simplenewsreader.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
