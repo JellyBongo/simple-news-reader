@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple News Reader</string>
+    <string name="action_settings">Настройки</string>
+    <string name="img_description">Лого</string>
+    <string name="open_link">Читать подробности на сайте</string>
+    <string name="setting_language">Язык</string>
+    <string name="settings">Настройки</string>
+</resources>

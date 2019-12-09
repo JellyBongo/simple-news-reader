@@ -1,15 +1,17 @@
 <resources>
     <string name="app_name">Simple News Reader</string>
-    <string name="text_description_sample_1">Адвокаты подсудимого пытались обжаловать его арест</string>
-    <string name="text_description_sample_2">Полковник ФСБ Кирилл Черкалин, обвиняемый в мошенничестве и получении взяток, назвал организатором всех преступных схем по «крышеванию» банков своего знакомого, бывшего замглавы Агентства по страхованию вкладов Валерия Мирошникова. Об этом сообщают «Открытые медиа» со ссылкой на источники, близкие к следствию и фигурантам дела.</string>
-    <string name="text_title_sample_1">В Японском море потерпел крушение гигантский плавучий зоопарк</string>
-    <string name="text_title_sample_2">Пятнадцать человек на сундук мертвеца</string>
-    <string name="default_title">There should be a title here</string>
-    <string name="default_descrtiption">Description must be here</string>
-    <string name="default_author">Ivan Ivanov</string>
-    <string name="default_pubdate">01.01.01</string>
+    <string name="text_description_sample_1" translatable="false">Адвокаты подсудимого пытались обжаловать его арест</string>
+    <string name="text_description_sample_2" translatable="false">Полковник ФСБ Кирилл Черкалин, обвиняемый в мошенничестве и получении взяток, назвал организатором всех преступных схем по «крышеванию» банков своего знакомого, бывшего замглавы Агентства по страхованию вкладов Валерия Мирошникова. Об этом сообщают «Открытые медиа» со ссылкой на источники, близкие к следствию и фигурантам дела.</string>
+    <string name="text_title_sample_1" translatable="false">В Японском море потерпел крушение гигантский плавучий зоопарк</string>
+    <string name="text_title_sample_2" translatable="false">Пятнадцать человек на сундук мертвеца</string>
+    <string name="default_title" translatable="false">There should be a title here</string>
+    <string name="default_descrtiption" translatable="false">Description must be here</string>
+    <string name="default_author" translatable="false">Ivan Ivanov</string>
+    <string name="default_pubdate" translatable="false">01.01.01</string>
+    <string name="default_categories" translatable="false">lol, kek, cheburek</string>
     <string name="img_description">logo</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_link">Read the full article on the website</string>
+    <string name="action_settings">Settings</string>
+    <string name="setting_language">Language</string>
+    <string name="settings">Settings</string>
 </resources>

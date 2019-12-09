@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.prof.rssparser.Article
 import com.example.simplenewsreader.R
+import com.example.simplenewsreader.Utilities
 import com.example.simplenewsreader.activities.ArticleActivity
 import kotlinx.android.synthetic.main.article_card.view.*
 import java.text.SimpleDateFormat
@@ -59,12 +60,10 @@ class ArticleAdapter(private val dataset: Array<Article>) :
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = dataset[position]
         val view = holder.articleView
-        val basicDateFormat = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US)
-        val displayDateFormat = SimpleDateFormat("HH:mm:ss, d MMM yyyy", Locale.US)
 
         if (article.pubDate != null) {
-            val date = basicDateFormat.parse(article.pubDate)
-            val displayPubDate = displayDateFormat.format(date)
+            val date = Utilities.parseDate(article.pubDate!!)
+            val displayPubDate = Utilities.prettifyDate(date)
             view.pubDate.text = displayPubDate
         } else {
             view.pubDate.text = ""

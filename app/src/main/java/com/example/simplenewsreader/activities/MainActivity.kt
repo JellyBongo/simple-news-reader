@@ -1,6 +1,9 @@
 package com.example.simplenewsreader.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -8,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplenewsreader.viewmodels.MainViewModel
 import com.example.simplenewsreader.R
+import com.example.simplenewsreader.Utilities
 import com.example.simplenewsreader.adapters.ArticleAdapter
 import com.prof.rssparser.Article
 import java.text.SimpleDateFormat
@@ -28,14 +32,14 @@ class MainActivity : AppCompatActivity() {
             if (o1.pubDate == null || o2.pubDate == null)
                 return 0
 
-            val dataFormat = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US)
-            return dataFormat.parse(o2.pubDate).compareTo(dataFormat.parse(o1.pubDate))
+            return Utilities.parseDate(o2.pubDate!!).compareTo(Utilities.parseDate(o1.pubDate!!))
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(findViewById(R.id.main_toolbar))
 
         val viewManager = LinearLayoutManager(this)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
@@ -56,6 +60,23 @@ class MainActivity : AppCompatActivity() {
                 newAdapter.notifyDataSetChanged()
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+            true
+        }
+
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 
     private fun sortedByDate(list: List<Article>): List<Article> {
