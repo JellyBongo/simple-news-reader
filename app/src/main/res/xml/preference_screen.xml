@@ -5,8 +5,8 @@
         app:entries="@array/languageOptions"
         app:entryValues="@array/languageOptions"
         app:key="language"
-        app:summary="Select app's language"
-        app:title="Language"
+        app:summary="@string/setting_language_summary"
+        app:title="@string/setting_language"
     />
 
 </PreferenceScreen>

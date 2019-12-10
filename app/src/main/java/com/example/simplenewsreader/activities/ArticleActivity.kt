@@ -5,6 +5,8 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
@@ -19,15 +21,20 @@ class ArticleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article)
-        setSupportActionBar(findViewById(R.id.article_toolbar))
+
+        setSupportActionBar(findViewById(R.id.article_toolbar)) // Toolbar initialization
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // Get extra parameters from the intent
         val articleParams = intent.getSerializableExtra(ARTICLE_PARAMS) as HashMap<String, String>
 
         fillViewWithArticleParams(articleParams)
         removeEmptyViews()
     }
 
+    /**
+     * Sets up the article view according to the extra parameters from the intent
+     */
     private fun fillViewWithArticleParams (params: HashMap<String, String>) {
         val title = findViewById<TextView>(R.id.title)
         val description = findViewById<TextView>(R.id.description)
@@ -56,8 +63,11 @@ class ArticleActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Clears some space by removing unnecessary views
+     */
     private fun removeEmptyViews() {
-        val layout = findViewById<ConstraintLayout>(R.id.layout)
+        val layout = findViewById<LinearLayout>(R.id.articleLayout)
         layout.children.forEach { view ->
             if(view.id != R.id.article_toolbar && (view as TextView).text.isNullOrBlank())
                 view.visibility = View.GONE

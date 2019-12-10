@@ -25,6 +25,9 @@ class MainViewModel : ViewModel() {
         articles.postValue(articleList)
     }
 
+    /**
+     * Gets articles from the rss feeds
+     */
     private fun loadArticles() {
         val urls = getUrls()
         urls.forEach { url ->

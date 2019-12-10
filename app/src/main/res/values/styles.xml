@@ -6,7 +6,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ToolBarStyle" parent="Theme.AppCompat">
+    <style name="ToolBarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/colorLight</item>
         <item name="android:textColorSecondary">@color/colorGrey</item>
         <item name="actionMenuTextColor">@color/colorLight</item>

@@ -2,7 +2,6 @@
 <resources>
     <string-array name="languageOptions">
         <item>English</item>
-        <item>Hindi</item>
-        <item>Other</item>
+        <item>Russian</item>
     </string-array>
 </resources>
